@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164b56"><title>PIANO MASTER v9.2 – Micro nhận diện nốt</title><style>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164b56"><title>PIANO MASTER v10.0 – Huấn luyện trường độ và câu nhạc</title><style>
 *{box-sizing:border-box}body{margin:0;background:#3b2d6b;color:white;font:15px system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0;color:white;background:#7248d7;padding:10px 14px;border-radius:12px}button:focus-visible{outline:3px solid #f4c5ff}header{background:#161026;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px}.brand{font-weight:850;font-size:20px}.wrap{max-width:1180px;margin:auto;padding:16px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{background:#2b2050}.tabs .active{background:#fff;color:#2b2050}.muted{color:#d0c4eb}.progress{height:12px;background:#8a6bb9;border-radius:15px;overflow:hidden;margin:15px 0}.progress>div{height:100%;background:#f9eaff}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0}.card{background:#251a44;border:2px solid #7157a9;border-radius:18px;padding:14px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}.card h3{margin:8px 0}.card p{margin:4px 0 14px;color:#e1d9f1}.card button{width:100%}.course{background:linear-gradient(160deg,#b879e6,#5546ce)}.course:nth-child(3n){background:linear-gradient(160deg,#2992f7,#2459c4)}.song{background:linear-gradient(145deg,#2c1d53,#17102d)}.emoji{font-size:45px;text-align:center;padding:8px}.hidden{display:none!important}.pill{border-radius:30px;background:#231737;padding:6px 12px}.panel{padding:16px;background:#291e50;border-radius:16px;margin:12px 0}.keys{display:flex;position:relative;height:125px;background:#111;border:3px solid #111;border-radius:8px;overflow:hidden}.key{flex:1;min-width:0;background:#faf9f3;color:#282336;border-right:2px solid #222;border-radius:0 0 5px 5px;padding:0;display:flex;align-items:end;justify-content:center;padding-bottom:10px;font-size:12px}.key.target{background:#9df1c9}.black{position:absolute;top:0;height:56%;width:4.5%;background:#24202c;border:1px solid #111;pointer-events:none}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.score{overflow:auto;background:#fff;border-radius:10px}.score svg{width:100%;min-width:570px;display:block}.roll{height:180px;background:#0b0b12;border-radius:10px;overflow:hidden}.roll svg{width:100%;height:100%}.status{padding:12px;background:#152d35;border-radius:12px;margin-top:10px;min-height:46px}.tiny{font-size:12px}.outline{background:#47347d}input[type=search]{background:#fff;border:0;border-radius:10px;padding:11px;color:#222;max-width:100%;width:270px}.badge{color:#d5ffd7}.scroll{display:flex;gap:8px;overflow:auto;padding:8px 0}.scroll button{white-space:nowrap;background:#241743}.scroll button.active{background:#9b57ef}footer{padding:18px;color:#cfc5e6;font-size:12px}@media(max-width:600px){.wrap{padding:10px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:10px;min-height:190px}.card h3{font-size:15px}.brand{font-size:16px}.keys{height:110px}}
  .v9midi{background:#152d35;border-radius:12px;padding:10px;line-height:1.5} </style><style>
 #durationView{max-width:1000px;margin:18px auto;padding:18px;background:#21183f;border:2px solid #8762dd;border-radius:22px}#durationView.hidden{display:none}.dur-journey{display:flex;gap:12px;overflow-x:auto;padding:20px 0}.dur-node{min-width:170px;min-height:105px;background:#4a2a91;border:2px solid #8c6ce1;border-radius:22px;text-align:center;padding:12px}.dur-node.current{border-color:#fff;box-shadow:0 0 14px #cfaaff}.dur-node.done{background:#087e86}.dur-staff{background:#f7f3ff;color:#201738;border-radius:14px;padding:15px;margin:12px 0}.dur-staff svg{width:100%;height:150px}.dur-pad{touch-action:none;background:#7954e0;border:3px solid #d4c0ff;border-radius:20px;padding:25px;min-height:95px;width:100%;font-size:22px;font-weight:800}.dur-pad:active,.dur-pad.pressed{background:#159f99}.dur-feedback{font-size:18px;min-height:60px}.dur-meter{height:14px;background:#433169;border-radius:20px;overflow:hidden}.dur-meter>div{height:100%;background:#24d6c6;width:0%}.dur-actions{display:flex;gap:10px;flex-wrap:wrap}.dur-actions button{flex:1}#durationView label{display:block;margin:14px 0}
@@ -81,7 +81,7 @@ button:hover{filter:brightness(1.12)}
 #pm82{background:#082653!important}#pm82 .tile{background:#174987!important;border-color:#67b1f2!important}#pm82 button{background:#2575d0!important}#pm82 .muted{color:#d1e8ff!important}#pm82 .meter{background:#154278!important}#pm82 .meter div{background:#7fc5ff!important}
 #pm83Landscape{background:#082957!important}#pm83Landscape .pm83Row button.target{background:#9bd5ff!important;color:#082b55!important}
 </style>
-</head><body><header><span class="brand">🎹 PIANO MASTER <small>v9.2</small></span><span class="tiny" id="micStatus">🎙 Micro: tắt</span><button id="goHome">⌂</button></header><main class="wrap"><section id="home"><div class="tabs"><button class="active" data-tab="solo">SOLO</button><button data-tab="chord">ĐỆM HÁT</button><button data-tab="practice">LUYỆN TẬP</button><button data-tab="songs">BÀI HÁT</button></div><div class="row" style="margin-top:14px"><h2 id="sectionTitle">Khóa học Solo</h2><span class="pill" id="overall">0%</span></div><div class="progress"><div id="overallBar" style="width:0%"></div></div><div id="catalogControls" class="hidden"><div class="row"><input type="search" id="search" placeholder="Tìm bài hát..."><button id="favorites">♡ Yêu thích</button></div><div class="scroll" id="levels"></div></div><div class="grid" id="cards"></div><p class="muted tiny">Các bài có nút “Học ngay” có dữ liệu nốt nhạc để thực hành. Bài Solo bổ sung chỉ chấm cao độ và thứ tự; chưa chấm nhịp, ngón tay hoặc hợp âm đồng thời. Các khóa chưa có dữ liệu được ghi rõ, không tự nhận đã hoàn thành.</p></section><section id="lesson" class="hidden"><div class="row"><div><h2 id="lessonTitle">Bài học</h2><p id="lessonDesc" class="muted"></p></div><span id="counter" class="pill"></span></div><div class="panel"><div class="controls"><button id="restart">↺ Làm lại</button><button id="listen">♫ Nghe nốt</button><button id="mic">🎙 Bật micro</button><label>Tốc độ <input id="tempo" type="range" min="40" max="120" value="70"><span id="tempoText">70</span></label><select id="mode"><option value="both">Kết hợp</option><option value="staff">Khuông nhạc</option><option value="roll">Piano Roll</option></select></div><p id="instruction"></p></div><div class="muted tiny" style="margin:8px 0">🎼 Khuông nhạc tự chạy theo nốt đang luyện · Có thể kéo ngang để xem lại</div><div id="staffPanel" class="score"><svg id="staff" viewBox="0 0 720 155" aria-label="Khuông nhạc"></svg></div><div id="rollPanel"><div class="roll"><svg id="roll" viewBox="0 0 720 180" preserveAspectRatio="none" aria-label="Piano Roll"></svg></div><div id="keys" class="keys"></div></div><div class="status" id="feedback">Chạm phím ảo để bắt đầu. Micro cần HTTPS.</div><div class="row panel"><span id="completed"></span><button id="return">← Danh sách</button></div></section><section id="durationView" class="hidden"><div class="row"><h2>🎼 Trường độ nốt nhạc</h2><button id="durBack">← Khóa học</button></div><p>Nghe mẫu, rồi <b>giữ phím Đô</b> đúng trường độ. Có thể dùng chuột, màn hình cảm ứng hoặc phím cách.</p><div class="dur-journey" id="durJourney"></div><div class="dur-staff"><svg id="durStaff" viewBox="0 0 620 150" role="img" aria-label="Khuông nhạc và nốt cần luyện"></svg></div><h3 id="durTitle"></h3><p id="durHint"></p><label>Tốc độ: <strong id="durBpmLabel">60 BPM</strong> <input id="durBpm" type="range" min="40" max="100" value="60" step="5"></label><div class="dur-actions"><button id="durListen">♫ Nghe mẫu</button><button id="durRetry">↺ Thử lại</button></div><div class="dur-meter"><div id="durMeter"></div></div><p class="dur-feedback" id="durFeedback" aria-live="polite">Chọn một bài để bắt đầu.</p><button class="dur-pad" id="durPad">🎹 NHẤN VÀ GIỮ PHÍM ĐÔ (C4)</button><p class="muted tiny">Bản luyện này đo thời gian giữ nút trên màn hình/bàn phím máy tính. Chưa đo thời gian giữ phím trên Roland RP102; cần kiểm thử MIDI riêng.</p></section></main><footer>PIANO MASTER v9.2 • Bản thử nghiệm giao diện và bài hát. Nhận diện micro chỉ hỗ trợ thử nốt đơn, chưa đánh giá kỹ thuật/ngón tay hoặc hợp âm. Bản HTML có thể mở offline để thử bàn phím, nhưng micro trên Android thường cần HTTPS.</footer><script>
+</head><body><header><span class="brand">🎹 PIANO MASTER <small>v10.0</small></span><span class="tiny" id="micStatus">🎙 Micro: tắt</span><button id="goHome">⌂</button></header><main class="wrap"><section id="home"><div class="tabs"><button class="active" data-tab="solo">SOLO</button><button data-tab="chord">ĐỆM HÁT</button><button data-tab="practice">LUYỆN TẬP</button><button data-tab="songs">BÀI HÁT</button></div><div class="row" style="margin-top:14px"><h2 id="sectionTitle">Khóa học Solo</h2><span class="pill" id="overall">0%</span></div><div class="progress"><div id="overallBar" style="width:0%"></div></div><div id="catalogControls" class="hidden"><div class="row"><input type="search" id="search" placeholder="Tìm bài hát..."><button id="favorites">♡ Yêu thích</button></div><div class="scroll" id="levels"></div></div><div class="grid" id="cards"></div><p class="muted tiny">Các bài có nút “Học ngay” có dữ liệu nốt nhạc để thực hành. Bài Solo bổ sung chỉ chấm cao độ và thứ tự; chưa chấm nhịp, ngón tay hoặc hợp âm đồng thời. Các khóa chưa có dữ liệu được ghi rõ, không tự nhận đã hoàn thành.</p></section><section id="lesson" class="hidden"><div class="row"><div><h2 id="lessonTitle">Bài học</h2><p id="lessonDesc" class="muted"></p></div><span id="counter" class="pill"></span></div><div class="panel"><div class="controls"><button id="restart">↺ Làm lại</button><button id="listen">♫ Nghe nốt</button><button id="mic">🎙 Bật micro</button><label>Tốc độ <input id="tempo" type="range" min="40" max="120" value="70"><span id="tempoText">70</span></label><select id="mode"><option value="both">Kết hợp</option><option value="staff">Khuông nhạc</option><option value="roll">Piano Roll</option></select></div><p id="instruction"></p></div><div class="muted tiny" style="margin:8px 0">🎼 Khuông nhạc tự chạy theo nốt đang luyện · Có thể kéo ngang để xem lại</div><div id="staffPanel" class="score"><svg id="staff" viewBox="0 0 720 155" aria-label="Khuông nhạc"></svg></div><div id="rollPanel"><div class="roll"><svg id="roll" viewBox="0 0 720 180" preserveAspectRatio="none" aria-label="Piano Roll"></svg></div><div id="keys" class="keys"></div></div><div class="status" id="feedback">Chạm phím ảo để bắt đầu. Micro cần HTTPS.</div><div class="row panel"><span id="completed"></span><button id="return">← Danh sách</button></div></section><section id="durationView" class="hidden"><div class="row"><h2>🎼 Trường độ nốt nhạc</h2><button id="durBack">← Khóa học</button></div><p>Nghe mẫu, rồi <b>giữ phím Đô</b> đúng trường độ. Có thể dùng chuột, màn hình cảm ứng hoặc phím cách.</p><div class="dur-journey" id="durJourney"></div><div class="dur-staff"><svg id="durStaff" viewBox="0 0 620 150" role="img" aria-label="Khuông nhạc và nốt cần luyện"></svg></div><h3 id="durTitle"></h3><p id="durHint"></p><label>Tốc độ: <strong id="durBpmLabel">60 BPM</strong> <input id="durBpm" type="range" min="40" max="100" value="60" step="5"></label><div class="dur-actions"><button id="durListen">♫ Nghe mẫu</button><button id="durRetry">↺ Thử lại</button></div><div class="dur-meter"><div id="durMeter"></div></div><p class="dur-feedback" id="durFeedback" aria-live="polite">Chọn một bài để bắt đầu.</p><button class="dur-pad" id="durPad">🎹 NHẤN VÀ GIỮ PHÍM ĐÔ (C4)</button><p class="muted tiny">Bản luyện này đo thời gian giữ nút trên màn hình/bàn phím máy tính. Chưa đo thời gian giữ phím trên Roland RP102; cần kiểm thử MIDI riêng.</p></section></main><footer>PIANO MASTER v10.0 • Bản thực hành, cần giáo viên thẩm định bài nâng cao. Nhận diện micro chỉ hỗ trợ thử nốt đơn, chưa đánh giá kỹ thuật/ngón tay hoặc hợp âm. Bản HTML có thể mở offline để thử bàn phím, nhưng micro trên Android thường cần HTTPS.</footer><script>
 /* PIANO MASTER v8.3 — locally synthesized sampled-style piano timbre, no external assets */
 window.PMPianoSound=(()=>{
  let ctx=null, cache=new Map();
@@ -179,10 +179,29 @@ const focusX=first+Math.min(pos,n-1)*gap;
 requestAnimationFrame(()=>viewport.scrollTo({left:Math.max(0,focusX-viewport.clientWidth*.35),behavior:'smooth'}));
 let r='';for(let i=0;i<18;i++)r+=`<line x1="${i*40}" x2="${i*40}" y1="0" y2="180" stroke="#3e3c49"/>`;for(let i=pos;i<Math.min(pos+8,n);i++){let x=(active.notes[i]-60)*30+65,y=150-(i-pos)*21;r+=`<rect x="${x}" y="${y}" width="30" height="18" rx="3" fill="${i===pos?'#37f2b2':'#ffb63c'}"/>`}$('roll').innerHTML=r;document.querySelectorAll('.key').forEach(k=>k.classList.toggle('target',!finished&&Number(k.dataset.n)===target))}
 function play(n){window.PMPianoSound.play(n,.65,.65)}
-function hit(n){if($('lesson').classList.contains('hidden')||pos>=active.notes.length)return;if(n===active.notes[pos]){pos++;store(active.id,Math.max(progress(active.id),pos));$('feedback').textContent=pos===active.notes.length?'🎉 Đã hoàn thành đoạn nhạc!':'✓ Đúng '+noteName(n)+'. Tiếp tục!';renderLesson()}else $('feedback').textContent='Chưa đúng. Bạn vừa chơi '+noteName(n)+', hãy thử '+noteName(active.notes[pos])+'.'}
+function hit(n){if($('lesson').classList.contains('hidden')||pos>=active.notes.length)return;if(window.PM96&& !window.PM96.beforeMainHit(n,active,pos))return;if(n===active.notes[pos]){pos++;store(active.id,Math.max(progress(active.id),pos));$('feedback').textContent=pos===active.notes.length?'🎉 Đã hoàn thành đoạn nhạc!':'✓ Đúng '+noteName(n)+'. Tiếp tục!';renderLesson()}else $('feedback').textContent='Chưa đúng. Bạn vừa chơi '+noteName(n)+', hãy thử '+noteName(active.notes[pos])+'.'}
 const white=[48,50,52,53,55,57,59,60,62,64,65,67,69,71,72];white.forEach((n,i)=>{let b=document.createElement('button');b.className='key';b.dataset.n=n;b.textContent=noteName(n);b.onclick=()=>{play(n);hit(n)};$('keys').appendChild(b)});white.forEach((n,i)=>{if(i<white.length-1&&[0,2,5,7,9].includes(n%12)){let k=document.createElement('div');k.className='black';k.style.left=((i+1)/white.length*100-2.2)+'%';$('keys').appendChild(k)}});
-function detect(buf,sr){let energy=0;for(let v of buf)energy+=v*v;if(Math.sqrt(energy/buf.length)<.013)return null;let best=0,lag=0;for(let l=Math.floor(sr/900);l<Math.min(sr/190,buf.length/2);l++){let dot=0,a=0,b=0;for(let i=0;i<buf.length-l;i+=3){dot+=buf[i]*buf[i+l];a+=buf[i]*buf[i];b+=buf[i+l]*buf[i+l]}let c=dot/Math.sqrt(a*b+1e-10);if(c>best){best=c;lag=l}}if(best<.89)return null;let midi=Math.round(69+12*Math.log2(sr/lag/440));return midi>=48&&midi<=84?midi:null}
-let pm92StableNote=null,pm92StableFrames=0,pm92LastAccepted=null,pm92SilenceFrames=0;
+function detect(buf,sr){
+ // Normalized autocorrelation with interpolation; conservative monophonic estimation.
+ let energy=0,peak=0;for(let v of buf){energy+=v*v;peak=Math.max(peak,Math.abs(v))}
+ const rms=Math.sqrt(energy/buf.length);if(rms<.009||peak>.99)return null;
+ const minLag=Math.floor(sr/1100),maxLag=Math.min(Math.floor(sr/125),Math.floor(buf.length*.48));
+ const cor=new Float32Array(maxLag+2);let best=-1,bestLag=0;
+ for(let lag=minLag;lag<=maxLag;lag++){
+  let sum=0,aa=0,bb=0;
+  for(let i=0;i<buf.length-lag;i+=2){let x=buf[i],y=buf[i+lag];sum+=x*y;aa+=x*x;bb+=y*y}
+  const c=sum/Math.sqrt(aa*bb+1e-12);cor[lag]=c;
+  // Prefer the first strong local maximum to reduce octave errors from harmonics.
+  if(lag>minLag+1&&cor[lag-1]>cor[lag-2]&&cor[lag-1]>=c&&cor[lag-1]>.88){best=cor[lag-1];bestLag=lag-1;break}
+  if(c>best){best=c;bestLag=lag}
+ }
+ if(best<.87||bestLag<=minLag)return null;
+ const prev=cor[bestLag-1]||best,mid=cor[bestLag]||best,next=cor[bestLag+1]||best;
+ const denom=prev-2*mid+next;const offset=Math.abs(denom)>1e-6?Math.max(-.5,Math.min(.5,.5*(prev-next)/denom)):0;
+ const f=sr/(bestLag+offset),raw=69+12*Math.log2(f/440),midi=Math.round(raw);
+ return midi>=48&&midi<=84&&Math.abs(raw-midi)<.38?midi:null;
+}
+let pm92StableNote=null,pm92StableFrames=0,pm92LastAccepted=null,pm92SilenceFrames=0,pm96PrevLevel=0;
 function pm92Live(n,level){const el=document.getElementById('pm92Live');if(!el)return;const pitch=n===null?'—':noteName(n);el.querySelector('[data-pm92-note]').textContent=pitch;el.querySelector('[data-pm92-level]').style.width=Math.min(100,Math.round(level*550))+'%';el.querySelector('[data-pm92-state]').textContent=n===null?'Đang nghe · hãy chơi một nốt rõ ràng':'Đã nhận diện '+pitch+' (ước lượng)';}
 async function startMic(){
  if(micOn)return;
@@ -199,11 +218,12 @@ async function startMic(){
    analyser.getFloatTimeDomainData(buf);
    let energy=0;for(let i=0;i<buf.length;i++)energy+=buf[i]*buf[i];const level=Math.sqrt(energy/buf.length);
    const n=detect(buf,audioCtx.sampleRate);pm92Live(n,level);
+   if(pm96PrevLevel>.027&&level<pm96PrevLevel*.36)pm92LastAccepted=null;pm96PrevLevel=level;
    if(n===null){pm92SilenceFrames++;if(pm92SilenceFrames>=4){pm92LastAccepted=null;pm92StableNote=null;pm92StableFrames=0}}
    else{
     pm92SilenceFrames=0;
     if(n===pm92StableNote)pm92StableFrames++;else{pm92StableNote=n;pm92StableFrames=1}
-    if(pm92StableFrames>=3&&pm92LastAccepted!==n&&t-lastTime>320){
+    if(pm92StableFrames>=3&&pm92LastAccepted!==n&&t-lastTime>220){
       pm92LastAccepted=n;lastTime=t;
       if(!$('lesson').classList.contains('hidden'))hit(n);
     }
@@ -510,7 +530,7 @@ setInterval(()=>{let now=performance.now(),delta=Math.min(2,(now-lastTick)/1000)
  // Avoid a stale cursor after switching songs while the lesson panel stays visible.
  const titleObserver=new MutationObserver(()=>{const a=song();if(a&&startedSong!==a.id){stop();startedSong=a.id;elapsed=0;$('pm90To').value=Math.min(4,a.notes.length);$('pm90From').max=a.notes.length;$('pm90To').max=a.notes.length;paint()}});
  titleObserver.observe($('lessonTitle'),{childList:true,characterData:true,subtree:true});
- window.addEventListener('pagehide',stop);
+ window.addEventListener('pagehide',()=>{state.counting++;state.countActive=false;state.down.clear();stop()});
 })();
 </script>
 
@@ -592,4 +612,134 @@ if(typeof renderLesson==='function'){
 window.addEventListener('pageshow',update);
 })();
 </script>
-<script id="pm95Info">document.addEventListener("DOMContentLoaded",()=>{const el=document.querySelector("#pmCourse .pmTop strong");if(el)el.title="Khuông khóa Sol/Fa; bài hai tay hiện luyện luân phiên, chưa chấm đồng thời hoặc trường độ";});</script></body></html>
+<script id="pm95Info">document.addEventListener("DOMContentLoaded",()=>{const el=document.querySelector("#pmCourse .pmTop strong");if(el)el.title="Khuông khóa Sol/Fa; bài hai tay hiện luyện luân phiên, chưa chấm đồng thời hoặc trường độ";});</script>
+<style id="pm96Style">
+#pm96Lab{position:fixed;right:12px;bottom:75px;z-index:10005;background:#f6faff;color:#19304b;border:2px solid #64b4de;border-radius:17px;padding:12px;max-width:min(390px,calc(100vw - 24px));box-shadow:0 8px 30px #0008;font-size:13px}
+#pm96Lab[hidden],#pm96Lab .pm96hide[hidden]{display:none!important}
+#pm96Lab button{padding:7px 9px;background:#246ba4;border-radius:8px;color:white}
+#pm96Lab input[type=number]{width:65px;padding:5px;color:#172d45;background:white;border:1px solid #aaa;border-radius:7px}
+#pm96Lab .pm96row{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:8px 0}
+#pm96Lab .pm96pulse{display:inline-block;width:15px;height:15px;border-radius:50%;background:#839aad}
+#pm96Lab .pm96pulse.on{background:#14b88d;box-shadow:0 0 0 5px #14b88d55}
+#pm96Guide{padding:8px;border-radius:9px;background:#deebfc;max-height:170px;overflow:auto}
+#pm96Guide b{color:#125d91}#pm96Guide .pm96current{background:#ffe2a6;border-radius:4px;padding:3px}
+#pm96Lab .pm96muted{color:#435b71;font-size:12px}#pm97Report{background:#eaf5fa;padding:9px;border-radius:8px;margin-bottom:8px}#pm96Guide .pm97phrase{display:block;margin:4px 0}#pm96Guide .pm97finger{font-weight:700;color:#145d87}
+#pm96Open{position:fixed;right:12px;bottom:12px;z-index:10004;background:#087d9a;color:white;font-weight:700}
+@media(max-width:500px){#pm96Lab{bottom:66px;max-height:78vh;overflow:auto}}
+</style>
+<button id="pm96Open" type="button" aria-expanded="false">🎵 Luyện nhịp · v10.0</button>
+<section id="pm96Lab" hidden aria-label="Công cụ luyện nhịp và ngón">
+ <div class="pm96row" style="justify-content:space-between"><b>🎹 PIANO MASTER v10.0</b><button id="pm96Close">× Đóng</button></div>
+ <div class="pm96row"><label>BPM <input id="pm96Bpm" type="number" min="30" max="220" value="80"></label><label>Nhịp <select id="pm96Meter"><option value="4">4/4</option><option value="3">3/4</option><option value="2">2/4</option></select></label><span class="pm96pulse" id="pm96Pulse"></span><span id="pm96Count">—</span></div>
+ <div class="pm96row"><button id="pm96Metro">▶ Bật metronome</button><button id="pm96Tap">Gõ nhịp</button><button id="pm98Count">Đếm vào 1 ô nhịp</button><button id="pm96Reset">↻ Đặt lại</button></div>
+ <div class="pm96row"><label><input id="pm96Rhythm" type="checkbox"> Chấm trường độ theo phím giữ</label><label>Trường độ luyện <select id="pm96Beats"><option value="0">Theo bài / mặc định 1 phách</option><option value="0.5">½ phách</option><option value="1">1 phách</option><option value="2">2 phách</option><option value="4">4 phách</option></select></label></div>
+ <div class="pm96muted">Chế độ này đo thời gian giữ phím ảo bằng chuột/cảm ứng hoặc MIDI Note On/Off khi kết nối trong công cụ; chấp nhận sai lệch −25% đến +30%. Nếu bài không có trường độ, mặc định 1 phách. Micro chỉ đo cao độ một nốt, không khẳng định thời điểm nhả phím.</div>
+ <div class="pm96row"><button id="pm96Midi">Kết nối MIDI luyện nhịp</button><span id="pm96MidiStatus">Chưa kết nối</span></div>
+ <div id="pm98History" class="pm96muted" aria-live="polite"></div><div class="pm96row"><button id="pm99HistoryView" type="button">📋 Xem 10 lượt gần nhất</button><button id="pm99HistoryExport" type="button">⬇ Xuất lịch sử CSV</button></div><div id="pm99HistoryRows" class="pm96muted" hidden></div><div id="pm97Report" class="pm96muted" aria-live="polite">📊 Chưa có lượt luyện trường độ nào.</div><div id="pm96Guide" aria-live="polite">Mở bài học để xem hướng dẫn từng câu.</div><div id="pm96Feedback" class="pm96row" aria-live="polite">Chọn bài và chơi đàn để bắt đầu.</div>
+</section>
+<script id="pm96Script">
+(()=>{'use strict';
+ const $=id=>document.getElementById(id),lab=$('pm96Lab'),open=$('pm96Open');
+ const state={timer:null,ctx:null,beat:0,next:0,access:null,down:new Map(),lastTap:0,taps:[],seen:-1,counting:0,countActive:false};
+ const midiToName=n=>['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'][n%12]+(Math.floor(n/12)-1);
+ const main=()=>document.getElementById('lesson')&&!document.getElementById('lesson').classList.contains('hidden');
+ function current(){if(main()&&typeof active!=='undefined'&&active?.notes){return {type:'main',notes:active.notes.map(n=>midiToName(n)),index:typeof pos==='number'?pos:0,hand:String(active.level||'').toLowerCase().includes('trái')?'L':'R',durations:active.durations||null}};
+  const container=document.querySelector('#pmCourse:not([hidden]) [data-v8note]');if(container){const target=document.querySelector('#pmCourse .v8info');return {type:'course',text:target?.textContent||''}}return null;}
+ function guide(){const c=current(),target=$('pm96Guide');if(!c){target.textContent='Hãy mở một bài học. Gợi ý số ngón chỉ áp dụng khi thế tay rõ ràng. Các câu được chia thành nhóm 4 nốt để luyện, không phải cách chia câu gốc của tác phẩm.';return}
+  if(c.type==='course'){target.textContent='Khóa 60 bài: theo số ngón hiển thị trên khuông nhạc và mục Vị trí tay. Khi đổi nốt, công cụ sẽ theo dõi hướng dẫn. Các thế tay khác cần giáo viên kiểm tra.';return}
+  const notes=c.notes,index=Math.min(c.index,notes.length-1);if(index<0){target.textContent='Chưa có nốt.';return}
+  // Conservative per-phrase position detection: only diatonic C-D-E-F-G hand positions.
+  const sets={R:['C4','D4','E4','F4','G4'],L:['C3','D3','E3','F3','G3']};
+  const chunks=[];for(let i=0;i<notes.length;i+=4){const part=notes.slice(i,i+4),hand=part.every(n=>sets.L.includes(n))?'L':part.every(n=>sets.R.includes(n))?'R':null;chunks.push({start:i,part,hand})}
+  const chunk=chunks[Math.floor(index/4)];const prev=chunks[Math.floor(index/4)-1];
+  let html='<b>Nhóm '+(Math.floor(index/4)+1)+' / '+chunks.length+'</b> · nốt '+(index+1)+'/'+notes.length+'<div>';
+  if(chunk.hand){const keys=sets[chunk.hand];html+='Tay '+(chunk.hand==='L'?'trái':'phải')+': '+(chunk.hand==='L'?'ngón 5 tại Đô3, ngón 1 tại Sol3':'ngón 1 tại Đô4, ngón 5 tại Sol4')+'. ';if(prev&&prev.hand!==chunk.hand)html+='<b>Chuyển tay trước câu mới.</b> ';}
+  else html+='Câu có nốt vượt thế tay Đô–Sol tiêu chuẩn; chưa chỉ định chuyển ngón để tránh hướng dẫn sai. ';
+  html+='</div><div>'+chunk.part.map((n,i)=>{const finger=chunk.hand? (chunk.hand==='L'?5-sets.L.indexOf(n):sets.R.indexOf(n)+1):'—';return '<span class="'+(chunk.start+i===index?'pm96current':'')+'">'+n+' · '+finger+'</span>'}).join(' → ')+'</div>';
+  html+='<div class="pm96muted">Số ngón là đề xuất theo thế tay cơ bản, không phải phép đo ngón từ micro/MIDI.</div>';target.innerHTML=html;
+ }
+ let lastSignature='';function observe(){const c=current(),sig=c?c.type+':'+(c.type==='main'?c.index+'/'+c.notes.length:c.text):'';if(sig!==lastSignature){lastSignature=sig;guide()}}
+ new MutationObserver(observe).observe(document.body,{subtree:true,childList:true,characterData:true});observe();
+ function bpm(){return Math.max(30,Math.min(220,Number($('pm96Bpm').value)||80))}
+ function tick(){if(!state.ctx)return;const period=60/bpm(),now=state.ctx.currentTime;while(state.next<now+.11){const k=state.beat%Number($('pm96Meter').value),o=state.ctx.createOscillator(),g=state.ctx.createGain();o.type='sine';o.frequency.value=k===0?1000:700;g.gain.setValueAtTime(.0001,state.next);g.gain.exponentialRampToValueAtTime(.10,state.next+.005);g.gain.exponentialRampToValueAtTime(.0001,state.next+.065);o.connect(g);g.connect(state.ctx.destination);o.start(state.next);o.stop(state.next+.07);state.beat++;state.next+=period;$('pm96Count').textContent=(k+1)+'/'+$('pm96Meter').value;}
+  $('pm96Pulse').classList.toggle('on',state.beat%2===1);}
+ function stop(){if(state.timer)clearInterval(state.timer);state.timer=null;$('pm96Metro').textContent='▶ Bật metronome';$('pm96Pulse').classList.remove('on')}
+ async function start(){stop();state.ctx=state.ctx||new(window.AudioContext||window.webkitAudioContext)();await state.ctx.resume();state.beat=0;state.next=state.ctx.currentTime+.08;tick();state.timer=setInterval(tick,25);$('pm96Metro').textContent='⏹ Tắt metronome'}
+ $('pm96Metro').onclick=()=>state.timer?stop():start().catch(e=>$('pm96Feedback').textContent=e.message);
+ // Audible and visible count-in; no scoring until the measure has finished.
+ $('pm98Count').onclick=async()=>{
+  const token=++state.counting,button=$('pm98Count'),beatMs=60000/bpm(),meter=Math.max(2,Math.min(4,Number($('pm96Meter').value)||4));
+  try{const C=window.AudioContext||window.webkitAudioContext;if(!C)throw Error('Thiết bị không hỗ trợ âm thanh Web Audio');state.ctx=state.ctx||new C();await state.ctx.resume();button.disabled=true;state.countActive=true;
+   for(let i=0;i<meter&&token===state.counting;i++){
+    const t=state.ctx.currentTime+.02,o=state.ctx.createOscillator(),g=state.ctx.createGain();o.type='sine';o.frequency.value=i===0?1000:740;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.18,t+.005);g.gain.exponentialRampToValueAtTime(.0001,t+.11);o.connect(g).connect(state.ctx.destination);o.start(t);o.stop(t+.12);
+    feedback('Chuẩn bị: phách '+(i+1)+' / '+meter);await new Promise(resolve=>setTimeout(resolve,beatMs));
+   }if(token===state.counting)feedback('Bắt đầu chơi! Giữ từng nốt đúng số phách.');
+  }catch(e){feedback('Không phát được đếm nhịp: '+e.message)}finally{if(token===state.counting)state.countActive=false;button.disabled=false}
+ };
+ $('pm96Bpm').onchange=()=>{state.down.clear();if(state.timer)start()};$('pm96Meter').onchange=()=>{state.down.clear();if(state.timer)start()};
+ $('pm96Tap').onclick=()=>{const t=performance.now();if(t-state.lastTap>2200)state.taps=[];if(state.lastTap&&t-state.lastTap>180)state.taps.push(t-state.lastTap);state.lastTap=t;const p=state.taps.slice(-5);if(p.length){$('pm96Bpm').value=Math.max(30,Math.min(220,Math.round(60000/(p.reduce((a,b)=>a+b,0)/p.length))));}};
+ const feedback=(str)=>{$('pm96Feedback').textContent=str};
+ function expected(){const c=current();if(c?.type!=='main'||c.index>=c.notes.length)return null;const note=c.notes[c.index],duration=Number(c.durations?.[c.index])||Number($('pm96Beats').value)||1;return {note,beats:duration>0?duration:1,index:c.index}}
+ function down(note,source){if(!$('pm96Rhythm').checked||state.countActive||!main())return;const ex=expected();if(!ex)return;const key=source+':'+note;if(state.down.has(key))return;state.down.set(key,{at:performance.now(),ex,tempo:bpm(),lesson:typeof active!=='undefined'?active?.id:null});feedback('Đang giữ '+note+'… cần '+ex.beats+' phách ('+Math.round(ex.beats*60000/bpm())+' ms).')}
+ const metrics={attempts:0,correct:0,early:0,late:0,wrong:0};
+ function report(){const total=metrics.attempts,rate=total?Math.round(metrics.correct*100/total):0;
+  $('pm97Report').textContent=total?'📊 Phiên luyện: '+metrics.correct+'/'+total+' đạt ('+rate+'%) · sớm '+metrics.early+' · muộn '+metrics.late+' · sai nốt '+metrics.wrong:'📊 Chưa có lượt luyện trường độ nào.';
+ }
+ function grade(note,source){const key=source+':'+note,d=state.down.get(key);if(!d)return;
+  state.down.delete(key);if(!main()||!$('pm96Rhythm').checked)return;
+  const elapsed=performance.now()-d.at,target=d.ex.beats*60000/d.tempo,ratio=elapsed/target;
+  if(d.lesson!==(typeof active!=='undefined'?active?.id:null)){feedback('Đã đổi bài: lượt đang giữ không được tính.');return;}
+  if(d.ex.index!==current()?.index){feedback('Nốt đã chuyển trong khi đang giữ. Lượt này không tính.');return;}
+  metrics.attempts++;
+  if(note!==d.ex.note){metrics.wrong++;feedback('↻ Sai cao độ: cần '+d.ex.note+'; bạn chơi '+note+'.');}
+  else if(ratio<.75){metrics.early++;feedback('↻ Nhả sớm '+Math.round(target-elapsed)+' ms. Hãy giữ đủ '+d.ex.beats+' phách.');}
+  else if(ratio>1.3){metrics.late++;feedback('↻ Giữ lâu '+Math.round(elapsed-target)+' ms. Hãy nhả sớm hơn.');}
+  else {metrics.correct++;accept(note);feedback('✓ Đúng nốt & trường độ '+note+' · '+Math.round(elapsed)+' / '+Math.round(target)+' ms ('+Math.round(ratio*100)+'%).');}
+  report(); saveHistory();
+ }
+ function saveHistory(){try{const key='pm98-rhythm-history';const list=JSON.parse(localStorage.getItem(key)||'[]');list.push({date:new Date().toISOString(),lesson:typeof active!=='undefined'?active?.id:null,bpm:bpm(),...metrics});localStorage.setItem(key,JSON.stringify(list.slice(-30)));showHistory();renderHistoryRows()}catch(e){}}
+ function showHistory(){try{const list=JSON.parse(localStorage.getItem('pm98-rhythm-history')||'[]');const x=list.at(-1);$('pm98History').textContent=x?'🗂 Lịch sử lưu tại thiết bị: '+list.length+' mốc · lần gần nhất '+new Date(x.date).toLocaleString('vi-VN')+' · '+x.correct+'/'+x.attempts+' đạt':'🗂 Chưa có lịch sử luyện nhịp.'}catch(e){$('pm98History').textContent='Không lưu được lịch sử ở chế độ duyệt này.'}}
+ function historyEntries(){try{const data=JSON.parse(localStorage.getItem('pm98-rhythm-history')||'[]');return Array.isArray(data)?data.filter(x=>x&&typeof x==='object').slice(-30):[]}catch(e){return []}}
+ function renderHistoryRows(){const el=$('pm99HistoryRows');if(el.hidden)return;const entries=historyEntries().slice(-10).reverse();el.replaceChildren();if(!entries.length){el.textContent='Chưa có lượt luyện được lưu.';return}const table=document.createElement('table');table.style.cssText='width:100%;font-size:12px;border-collapse:collapse';const head=document.createElement('tr');['Thời gian','Bài','BPM','Đạt / Tổng','Sớm','Muộn','Sai nốt'].forEach(label=>{const cell=document.createElement('th');cell.textContent=label;head.appendChild(cell)});table.appendChild(head);entries.forEach(x=>{const tr=document.createElement('tr');[new Date(x.date).toLocaleString('vi-VN'),x.lesson??'—',x.bpm??'—',(x.correct??0)+' / '+(x.attempts??0),x.early??0,x.late??0,x.wrong??0].forEach(val=>{const td=document.createElement('td');td.textContent=String(val);td.style.padding='4px';tr.appendChild(td)});table.appendChild(tr)});el.appendChild(table)}
+ $('pm99HistoryView').onclick=()=>{const el=$('pm99HistoryRows');el.hidden=!el.hidden;renderHistoryRows()};
+ $('pm99HistoryExport').onclick=()=>{const entries=historyEntries();if(!entries.length){feedback('Chưa có lịch sử để xuất.');return}const fields=['date','lesson','bpm','attempts','correct','early','late','wrong'];const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';const content='\uFEFF'+[fields.join(','),...entries.map(x=>fields.map(k=>quote(x[k])).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='PIANO_MASTER_lich_su_luyen_nhip_v10.0.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+ // v10.0: explicit short exercise coach — guides one real segment, without claiming actual finger detection.
+ const coach=document.createElement('section');coach.id='pm100Coach';coach.style.cssText='margin:12px 0;padding:14px;border-radius:12px;background:#edf8fc;color:#173447;border:1px solid #7bb7cc';
+ coach.innerHTML='<h3 style="margin:0 0 10px">🎯 Huấn luyện từng câu · v10.0</h3><p id="pm100Summary" aria-live="polite">Mở bài học để chọn câu luyện.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" id="pm100Prev">← Câu trước</button><button type="button" id="pm100Next">Câu tiếp →</button><button type="button" id="pm100Hear">♫ Nghe câu</button></div><p id="pm100Notes" style="line-height:1.9"></p><small>Đây là nhóm thực hành 4 nốt, không phải phân câu âm nhạc đã thẩm định. Ngón tay chỉ gợi ý ở thế tay 5 ngón Đô–Sol.</small>';
+ $('pm96Guide').insertAdjacentElement('afterend',coach);
+ let segment=0,segmentSignature='';
+ function drawCoach(){const c=current(),summary=$('pm100Summary'),notes=$('pm100Notes');if(!c||c.type!=='main'){summary.textContent='Mở bài học Solo để luyện từng câu.';notes.textContent='';return}const sig=c.notes.join('|');if(segmentSignature!==sig){segment=0;segmentSignature=sig}const count=Math.ceil(c.notes.length/4);segment=Math.max(0,Math.min(segment,count-1));const begin=segment*4,end=Math.min(c.notes.length,begin+4);const hand=c.notes.slice(begin,end).every(n=>['C3','D3','E3','F3','G3'].includes(n))?'L':c.notes.slice(begin,end).every(n=>['C4','D4','E4','F4','G4'].includes(n))?'R':'?';summary.textContent='Câu luyện '+(segment+1)+'/'+count+' · nốt '+(begin+1)+'–'+end+' · '+(hand==='L'?'tay trái':hand==='R'?'tay phải':'thế tay cần giáo viên xác nhận');notes.replaceChildren();c.notes.slice(begin,end).forEach((n,i)=>{const mark=document.createElement('span');mark.style.cssText='display:inline-block;padding:3px 7px;margin:3px;border-radius:7px;background:#d7edf6';let finger='?';const scale=hand==='L'?['C3','D3','E3','F3','G3']:['C4','D4','E4','F4','G4'];if(hand!=='?')finger=hand==='L'?5-scale.indexOf(n):scale.indexOf(n)+1;const beats=Number(c.durations?.[begin+i])||Number($('pm96Beats').value)||1;mark.textContent=n+' · ngón '+finger+' · '+beats+' phách';if(c.index===begin+i)mark.style.outline='2px solid #187690';notes.appendChild(mark)})}
+ $('pm100Prev').onclick=()=>{segment--;drawCoach()};$('pm100Next').onclick=()=>{segment++;drawCoach()};$('pm100Hear').onclick=()=>{const c=current();if(!c||c.type!=='main')return;const seq=c.notes.slice(segment*4,segment*4+4);const list=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];seq.forEach((n,i)=>{const m=n.match(/^([A-G]#?)(-?\d+)$/),mid=m?list.indexOf(m[1])+12*(Number(m[2])+1):null;if(mid!==null&&mid>=0)setTimeout(()=>{try{if(typeof play==='function')play(mid,.4)}catch(e){}},i*500)})};
+ const watchCoach=new MutationObserver(()=>{const c=current();if(c?.type==='main'){const s=c.notes.join('|')+':'+c.index+':'+segment;if(watchCoach.last!==s){watchCoach.last=s;drawCoach()}}});watchCoach.observe(document.getElementById('lesson'),{subtree:true,childList:true,characterData:true});drawCoach();
+ $('pm96Rhythm').addEventListener('change',()=>{state.down.clear();feedback($('pm96Rhythm').checked?'Chấm trường độ đã bật. Nhấn giữ rồi nhả phím để được chấm.':'Đã tắt chấm trường độ; nốt được chấm theo cao độ như trước.')});
+ report();showHistory();
+ // Main lesson: prevent early completion on click while rhythm mode is enabled.
+ window.PM96={beforeMainHit(n,a,index){if(!$('pm96Rhythm').checked)return true;feedback('Chế độ trường độ: giữ rồi nhả phím ảo hoặc dùng MIDI có Note Off. Micro chỉ cung cấp cao độ, chưa dùng để chấm trường độ.');return false;}};
+ // Gate for approved note-release, reusing existing pitch/progress logic.
+ let permit=false;window.PM96.beforeMainHit=(n,a,index)=>!$('pm96Rhythm').checked||permit;
+ function accept(note){if(!main()||typeof hit!=='function')return;let names=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];let m=names.indexOf(note.slice(0,-1))+12*(Number(note.slice(-1))+1);permit=true;try{hit(m)}finally{permit=false}}
+ // Only the original standalone keyboard uses .key[data-n]; observe presses before click-based hit.
+ document.addEventListener('pointerdown',e=>{const b=e.target.closest('#keys .key[data-n]');if(b&&main())down(midiToName(Number(b.dataset.n)),'pointer')},true);
+ document.addEventListener('pointerup',e=>{const entries=[...state.down.keys()].filter(k=>k.startsWith('pointer:'));for(const k of entries)grade(k.slice(8),'pointer')},true);
+ document.addEventListener('pointercancel',()=>{for(const k of [...state.down.keys()].filter(k=>k.startsWith('pointer:')))state.down.delete(k)},true);
+ // Filter click: ordinary click handler would otherwise accept ungraded duration.
+ document.addEventListener('click',e=>{if($('pm96Rhythm').checked&&e.target.closest('#keys .key[data-n]')){e.stopImmediatePropagation();e.preventDefault()}},true);
+ const boundMidi=new Map();
+ function bindMidi(){if(!state.access)return;const live=new Set(state.access.inputs.keys());for(const [id,item] of boundMidi){if(!live.has(id)){item.input.removeEventListener('midimessage',item.fn);boundMidi.delete(id)}}
+  for(const input of state.access.inputs.values()){
+   if(boundMidi.has(input.id))continue;
+   const fn=e=>{if(!$('pm96Rhythm').checked||!main())return;const [status,n,v]=e.data,cmd=status&240,note=midiToName(n);
+    if(cmd===144&&v>0)down(note,'midi');else if(cmd===128||(cmd===144&&v===0))grade(note,'midi')};
+   input.addEventListener('midimessage',fn);boundMidi.set(input.id,{input,fn});
+  }
+  $('pm96MidiStatus').textContent='Đã kết nối '+state.access.inputs.size+' thiết bị (chỉ nhận Note On/Off khi bật chấm trường độ)';
+ }
+ $('pm96Midi').onclick=async()=>{if(!navigator.requestMIDIAccess){$('pm96MidiStatus').textContent='Trình duyệt không hỗ trợ MIDI';return}
+  try{state.access=await navigator.requestMIDIAccess({sysex:false});bindMidi();state.access.onstatechange=bindMidi}
+  catch(e){$('pm96MidiStatus').textContent='Lỗi: '+e.message}
+ };
+ $('pm96Reset').onclick=()=>{state.counting++;state.countActive=false;state.down.clear();$('pm98Count').disabled=false;stop();Object.keys(metrics).forEach(k=>metrics[k]=0);report();feedback('Đã đặt lại thống kê phiên luyện. Tiến độ học vẫn được giữ.')};
+ $('pm96Close').onclick=()=>{state.counting++;state.countActive=false;state.down.clear();$('pm98Count').disabled=false;lab.hidden=true;open.setAttribute('aria-expanded','false')};open.onclick=()=>{lab.hidden=!lab.hidden;open.setAttribute('aria-expanded',String(!lab.hidden));guide()};window.addEventListener('pagehide',()=>{state.counting++;state.countActive=false;state.down.clear();stop()});
+})();
+</script>
+</body></html>
