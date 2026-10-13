@@ -1,5 +1,5 @@
-/* PIANO MASTER v11.44: page network-first, fallback offline. */
-const CACHE='piano-master-v11.44';
+/* PIANO MASTER v11.46: page network-first, fallback offline. */
+const CACHE='piano-master-v11.46';
 const APP_SHELL=['./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const c=await caches.open(CACHE);await Promise.all(APP_SHELL.map(async p=>{try{await c.add(new Request(p,{cache:'reload'}))}catch(e){console.warn('Optional shell item unavailable:',p,e)}}));await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('piano-master-')&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
